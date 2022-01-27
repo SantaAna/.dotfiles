@@ -206,13 +206,13 @@ bar {
 }
 
 #Display backround image
-exec_always feh --bg-fill /home/patrickmod+/Pictures/sand-dune.jpg
+exec_always feh --bg-fill /home/patrick/Pictures/sand-dune.jpg
 
 #My bindings
 bindsym $mod+x exec i3lock -i /home/patrick/Pictures/nd.png
 bindsym $mod+shift+w exec rofi -show window
-bindsym $mod+o exec bluetoothctl -- connect 34:31:8F:3D:35:6A
-bindsym $mod+shift+o exec bluetoothctl -- disconnect 34:31:8F:3D:35:6A
+bindsym $mod+o exec bluetoothctl -- connect 4C:87:5D:0D:9F:4E
+bindsym $mod+shift+o exec bluetoothctl -- disconnect 4C:87:5D:0D:9F:4E
 bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1
 bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness .4
 
