@@ -1,6 +1,5 @@
 :set number
 :set relativenumber
-lua require('lspconfig')
 lua require('lspconfig').eslint.setup{'on_attach=custom_attach'}
 lua require('lspconfig').tsserver.setup{'on_attach=custom_attach'}
 call plug#begin()
@@ -35,7 +34,11 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
+" Nerdtree keybindings
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 " end key bindings
 " =====================
 "LUA snippet for loading rust LSP features
