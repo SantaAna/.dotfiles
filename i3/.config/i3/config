@@ -223,3 +223,4 @@ for_window [class="Alacritty"] move to workspace $ws1
 for_window [class="Blueberry.py"] move to workspace $ws4
 for_window [class="obsidian"] move to workspace $ws5
 for_window [class="Zathura"] move to workspace $ws5
+for_window [class="Virt-manager"] move to workspace $ws4

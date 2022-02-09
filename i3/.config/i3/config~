@@ -209,7 +209,7 @@ bar {
 exec_always feh --bg-fill /home/patrick/Backgrounds/desert.png
 
 #My bindings
-bindsym $mod+x exec i3lock -i /home/patrick/desert_night.png
+bindsym $mod+x exec i3lock -i /home/patrick/Backgrounds/desert_night.png
 bindsym $mod+shift+w exec rofi -show window
 bindsym $mod+o exec bluetoothctl -- connect 4C:87:5D:0D:9F:4E 
 bindsym $mod+shift+o exec bluetoothctl -- disconnect 4C:87:5D:0D:9F:4E 
