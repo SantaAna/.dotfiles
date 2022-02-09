@@ -2,6 +2,7 @@
 :set relativenumber
 lua require('lspconfig').eslint.setup{'on_attach=custom_attach'}
 lua require('lspconfig').tsserver.setup{'on_attach=custom_attach'}
+lua require('lspconfig').bashls.setup{}
 call plug#begin()
   Plug 'https://github.com/neovim/nvim-lspconfig' 
   Plug 'https://github.com/hrsh7th/nvim-cmp'
@@ -21,6 +22,7 @@ call plug#begin()
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'BurntSushi/ripgrep'
   Plug 'sharkdp/fd'
+  Plug 'easymotion/vim-easymotion'
 call plug#end()
 "colorscheme
 colorscheme dracula
