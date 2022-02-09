@@ -105,3 +105,6 @@ bindkey '^[[B' history-substring-search-down
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias Obsidian=~/AppImage/Obsidian.AppImage &
 alias i3config="vi ~/.config/i3/config"
+alias vim="nvim"
+alias vi="nvim"
+alias t="tmux"

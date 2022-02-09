@@ -160,10 +160,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -206,13 +206,22 @@ bar {
 }
 
 #Display backround image
+<<<<<<< HEAD
 exec_always feh --bg-fill /home/patrick/Backgrounds/desert.png
+=======
+exec_always feh --bg-fill /home/patrick/Pictures/sand-dune.jpg
+>>>>>>> c644c842b702e7909242fe354691fcbcedef3997
 
 #My bindings
 bindsym $mod+x exec i3lock -i /home/patrick/Backgrounds/desert_night.png
 bindsym $mod+shift+w exec rofi -show window
+<<<<<<< HEAD
 bindsym $mod+o exec bluetoothctl -- connect 4C:87:5D:0D:9F:4E 
 bindsym $mod+shift+o exec bluetoothctl -- disconnect 4C:87:5D:0D:9F:4E 
+=======
+bindsym $mod+o exec bluetoothctl -- connect 4C:87:5D:0D:9F:4E
+bindsym $mod+shift+o exec bluetoothctl -- disconnect 4C:87:5D:0D:9F:4E
+>>>>>>> c644c842b702e7909242fe354691fcbcedef3997
 bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1
 bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness .4
 
