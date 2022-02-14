@@ -1,6 +1,10 @@
-:set number
-:set relativenumber
-lua require('lspconfig').eslint.setup{'on_attach=custom_attach'}
+:set expandtab
+:set tabstop=2
+:set softtabstop=2
+:set shiftwidth=2
+:set number relativenumber
+
+lua require('lspconfig').eslint.setup{}
 lua require('lspconfig').tsserver.setup{'on_attach=custom_attach'}
 lua require('lspconfig').bashls.setup{}
 call plug#begin()
@@ -23,11 +27,17 @@ call plug#begin()
   Plug 'BurntSushi/ripgrep'
   Plug 'sharkdp/fd'
   Plug 'easymotion/vim-easymotion'
+  Plug 'dense-analysis/ale'
 call plug#end()
 "colorscheme
 colorscheme dracula
 "setting leader
 let mapleader=" "
+"ale config
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
 "======================
 "key bindings
 inoremap <C-e> <Esc>
