@@ -25,6 +25,7 @@ call plug#begin()
   Plug 'sharkdp/fd'
   Plug 'easymotion/vim-easymotion'
   Plug 'dense-analysis/ale'
+  Plug 'b3nj5m1n/kommentary'
 call plug#end()
 "colorscheme
 colorscheme dracula
