@@ -29,6 +29,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'easymotion/vim-easymotion'
   Plug 'b3nj5m1n/kommentary'
+  Plug 'dense-analysis/ale'
 call plug#end()
 "colorscheme
 colorscheme dracula
