@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="/home/patrick/.mix/escripts:$PATH"
 export PATH="/usr/bin/:$PATH"
-
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="/home/patrick/go/bin/:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
