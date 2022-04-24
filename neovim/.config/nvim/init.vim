@@ -6,8 +6,9 @@
 :set softtabstop=2
 :set shiftwidth=2
 let g:airline_theme='dracula'
-lua require('lspconfig').bashls.setup{}
 call plug#begin()
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'MunifTanjim/prettier.nvim'
   Plug 'https://github.com/neovim/nvim-lspconfig' 
   Plug 'https://github.com/hrsh7th/nvim-cmp'
   Plug 'williamboman/nvim-lsp-installer'
@@ -35,6 +36,17 @@ call plug#end()
 colorscheme dracula
 "setting leader
 let mapleader=" "
+"code formatting
+"For Golang
+au BufWritePost *.go :silent !gofmt -w %
+"For Python
+au BufWritePost *.py :silent !black %
+"For JS
+au BufWritePost *.js :Prettier
+au BufWritePost *.html :Prettier
+au BufWritePost *.json :Prettier
+au BufWritePost *.css :Prettier
+au BufWritePost *.scss :Prettier
 "======================
 "key bindings
 inoremap <C-e> <Esc>
@@ -191,7 +203,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver','eslint','emmet_ls' }
+local servers = { 'tsserver','eslint','emmet_ls','pyright','gopls','golangci_lint_ls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
