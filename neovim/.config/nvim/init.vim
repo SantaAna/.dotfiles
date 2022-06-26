@@ -5,14 +5,34 @@
 :set tabstop=2
 :set softtabstop=2
 :set shiftwidth=2
-let g:airline_theme='dracula'
+:set scrolloff=10
+
+lua <<EOF
+  require'lspconfig'.elixirls.setup{
+    cmd = { "/home/patrick/elixirls/language_server.sh" };
+    }
+EOF
+lua <<EOF
+  require'nvim-web-devicons'.setup {
+   default = true;
+  }
+EOF
+lua <<EOF
+  require("trouble").setup {
+  }
+EOF
 call plug#begin()
+  Plug 'nvim-lualine/lualine.nvim'
+  Plug 'windwp/nvim-autopairs'
+  Plug 'folke/trouble.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'mattn/emmet-vim'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'MunifTanjim/prettier.nvim'
   Plug 'https://github.com/neovim/nvim-lspconfig' 
   Plug 'https://github.com/hrsh7th/nvim-cmp'
   Plug 'williamboman/nvim-lsp-installer'
-  Plug 'https://github.com/vim-airline/vim-airline'
   Plug 'https://github.com/preservim/nerdtree'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-vsnip'
@@ -23,15 +43,20 @@ call plug#begin()
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'BurntSushi/ripgrep'
   Plug 'sharkdp/fd'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'easymotion/vim-easymotion'
   Plug 'b3nj5m1n/kommentary'
+  Plug 'haya14busa/incsearch.vim'
   Plug 'dense-analysis/ale'
 call plug#end()
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
+lua << END
+require('lualine').setup{options={ theme = 'dracula'}}
+END
 "colorscheme
 colorscheme dracula
 "setting leader
@@ -68,6 +93,28 @@ nnoremap <C-k> <C-w>k
 " Window resizing
 nnoremap <silent> <C-Left> :vertical resize +5<CR>
 nnoremap <silent> <C-Right> :vertical resize -5<CR>
+" Emmet configuration
+let g:user_emmet_leader_key='<leader>'
+let g:user_emmet_mode='n'
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+" incsearch key bindings
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+" Trouble key bindings
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
 " end key bindings
 " =====================
 "LUA snippet for loading rust LSP features
@@ -147,7 +194,7 @@ EOF
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+  ensure_installed = "all",
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -203,7 +250,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver','eslint','emmet_ls','pyright','gopls','golangci_lint_ls' }
+local servers = { 'tsserver','eslint','emmet_ls','pyright','gopls','golangci_lint_ls', 'tailwindcss' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,

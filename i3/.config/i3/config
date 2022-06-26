@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 
 #Maps capslock to left control
 exec xmodmap /home/patrick/.xmodmap
-
+exec compton --conf ~/.config/compton/compton.conf
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -207,7 +207,6 @@ bar {
 
 #Display backround image
 exec_always feh --bg-fill /home/patrick/Pictures/sand-dune.jpg
-
 #My bindings
 bindsym $mod+x exec i3lock -i /home/patrick/Pictures/nd.png
 bindsym $mod+shift+w exec rofi -show window
