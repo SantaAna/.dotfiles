@@ -3,7 +3,7 @@ from libqtile.command import lazy
 from .keys import keys, mod 
 
 groups = [
-            Group("1",matches=[Match(wm_class=["alacritty"])]),
+            Group("1",matches=[Match(wm_class=["Alacritty"])]),
             Group("2",matches=[Match(wm_class=["firefox"])]),
             Group("3",matches=[Match(wm_class=["anki"])]),
             Group("4",matches=[Match(wm_class=["Blueman-manager"])]),
